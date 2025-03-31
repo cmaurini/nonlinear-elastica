@@ -2,11 +2,11 @@
 [![Open in Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new/?repo=cmaurini/nonlinear-elastica)
 
 
-# 🧰 Nonlinear Elastica Beam
+# Nonlinear Elastica Beam
 
 This repository demonstrates nonlinear deformation and buckling of an inextensible, unshearable planar beam under external loading.
 
-## 📘 Features
+## Features
 
 - Symbolic formulation with [CasADi](https://web.casadi.org/)
 - Constrained optimization using [IPOPT](https://coin-or.github.io/Ipopt/)
@@ -14,7 +14,7 @@ This repository demonstrates nonlinear deformation and buckling of an inextensib
   - Vertical tip load without imperfection
   - Axial compression with initial curvature imperfection
 
-## 🧠 Mathematical Model
+## Mathematical Model
 
 The beam minimizes the energy:
 
