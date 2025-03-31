@@ -35,7 +35,7 @@ conda activate elastica
 jupyter notebook
 ```
 
-## 📁 Files
+## Files
 
 - `elastica_buckling.ipynb`: Main notebook with simulations and plots
 - `environment.yml`: Conda environment
