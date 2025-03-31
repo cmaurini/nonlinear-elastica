@@ -25,7 +25,7 @@ The beam minimizes the energy:
 
 Inextensibility is enforced via nonlinear constraints between the orientation of the tangent vector and the derivative of the position vector.
 
-## 📦 Installation
+## Installation
 
 Install using conda:
 
