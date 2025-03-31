@@ -1,5 +1,5 @@
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/YOUR_USERNAME/nonlinear-elastica/HEAD)
-[![Open in Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new/?repo=YOUR_USERNAME%2Fnonlinear-elastica)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/cmaurini/nonlinear-elastica/HEAD)
+[![Open in Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new/?repo=cmaurini/nonlinear-elastica)
 
 
 # 🧰 Nonlinear Elastica Beam
