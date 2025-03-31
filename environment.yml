@@ -1,0 +1,10 @@
+name: elastica
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - casadi
+  - matplotlib
+  - numpy
+  - ipykernel
+  - jupyter
