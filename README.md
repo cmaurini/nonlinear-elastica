@@ -2,9 +2,11 @@
 [![Open in Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new/?repo=cmaurini/nonlinear-elastica)
 
 
-# Nonlinear Elastica Beam
+# Nonlinear Beam Model: Elastica
 
-This repository demonstrates nonlinear deformation and buckling of an inextensible, unshearable planar beam under external loading.
+This repository demonstrates the numerical solution of a nonlinear models inextensible, unshearable planar beam under external loading.
+It illustrates the deformation of a cnatilever beam under a transverse tip load and its bukling under a compressive axial force
+
 
 ## Features
 
@@ -18,10 +20,10 @@ This repository demonstrates nonlinear deformation and buckling of an inextensib
 
 The beam minimizes the energy:
 
-- Bending energy with inelastic curvature `k0`
+- Bending energy with inelastic curvature
 - Work of vertical and axial tip forces
 
-Inextensibility is enforced via nonlinear constraints on the tangent vector.
+Inextensibility is enforced via nonlinear constraints between the orientation of the tangent vector and the derivative of the position vector.
 
 ## 📦 Installation
 
