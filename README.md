@@ -1,3 +1,7 @@
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/YOUR_USERNAME/nonlinear-elastica/HEAD)
+[![Open in Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new/?repo=YOUR_USERNAME%2Fnonlinear-elastica)
+
+
 # 🧰 Nonlinear Elastica Beam
 
 This repository demonstrates nonlinear deformation and buckling of an inextensible, unshearable planar beam under external loading.
