@@ -4,8 +4,8 @@
 
 # Nonlinear Beam Model: Elastica
 
-This repository demonstrates the numerical solution of a nonlinear models inextensible, unshearable planar beam under external loading.
-It illustrates the deformation of a cnatilever beam under a transverse tip load and its bukling under a compressive axial force
+This repository demonstrates the numerical solution of a nonlinear model of an inextensible, unshearable planar beam under external loading.
+It illustrates the deformation of a cantilever beam under a transverse tip load and its buckling under a compressive axial force.
 
 
 ## Features
@@ -23,7 +23,7 @@ The beam minimizes the energy:
 - Bending energy with inelastic curvature
 - Work of vertical and axial tip forces
 
-Inextensibility is enforced via nonlinear constraints between the orientation of the tangent vector and the derivative of the position vector.
+Inextensibility is enforced via nonlinear constraints linking the orientation of the tangent vector to the derivative of the position vector.
 
 ## Installation
 
@@ -37,5 +37,5 @@ jupyter notebook
 
 ## Files
 
-- `elastica_buckling.ipynb`: Main notebook with simulations and plots
+- `elastica_buckling.ipynb`: Main notebook containing simulations and plots
 - `environment.yml`: Conda environment
