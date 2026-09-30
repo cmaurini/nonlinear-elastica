@@ -46,10 +46,14 @@ jobs:
     steps:
       - name: Trigger the mybinder.org build, so that the Binder button starts quickly
         run: |
-          curl -sSL --max-time 3000 \
+          set -o pipefail
+          if ! curl --silent --show-error --location --fail-with-body --max-time 3000 \
             "https://mybinder.org/build/gh/${GITHUB_REPOSITORY}/${GITHUB_SHA}" \
-            | tee build.log | grep -o '"phase": *"[a-z]*"' | uniq
+            | tee build.log | grep -o '"phase": *"[a-z]*"' | uniq; then
+            sed -E 's/("token"[[:space:]]*:[[:space:]]*")[^"]*"/\1[REDACTED]"/g' build.log
+            exit 1
+          fi
           if ! grep -q '"phase": *"ready"' build.log; then
-            cat build.log
+            sed -E 's/("token"[[:space:]]*:[[:space:]]*")[^"]*"/\1[REDACTED]"/g' build.log
             exit 1
           fi
