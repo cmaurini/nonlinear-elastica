@@ -49,4 +49,7 @@ jobs:
           curl -sSL --max-time 3000 \
             "https://mybinder.org/build/gh/${GITHUB_REPOSITORY}/${GITHUB_SHA}" \
             | tee build.log | grep -o '"phase": *"[a-z]*"' | uniq
-          grep -q '"phase": *"ready"' build.log
+          if ! grep -q '"phase": *"ready"' build.log; then
+            cat build.log
+            exit 1
+          fi
