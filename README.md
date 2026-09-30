@@ -44,5 +44,6 @@ jupyter lab
 
 - `elastica_buckling_casadi.ipynb`: CasADi version (course)
 - `elastica_buckling_fenicsx.ipynb`: FEniCSx version
-- `environment.yml`: conda environment for both notebooks (CasADi, FEniCSx 0.11), also used by Binder and by the CI
+- `environment.yml`: full conda environment for both notebooks, used by the CI
+- `.binder/environment.yml`: lightweight environment for the CasADi notebook opened by the Binder badge
 - `.github/workflows/ci.yml`: executes both notebooks in the conda environment, then prebuilds the Binder image
