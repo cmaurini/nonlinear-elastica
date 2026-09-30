@@ -1,21 +1,52 @@
-name: Run notebook
+name: CI
 
-on: [push, pull_request]
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
 
 jobs:
-  build:
+  notebook:
+    name: Run notebooks (CasADi, FEniCSx 0.11)
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash -el {0}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v3
+      - name: Create conda environment from environment.yml
+        uses: conda-incubator/setup-miniconda@v3
+        with:
+          miniforge-version: latest
+          environment-file: environment.yml
+          activate-environment: elastica
+          conda-remove-defaults: true
 
-      - name: Install dependencies
+      - name: Show versions
+        run: python -c "import casadi, dolfinx; print('casadi', casadi.__version__, 'dolfinx', dolfinx.__version__)"
+
+      - name: Execute notebooks
         run: |
-          pip3 install jupyter nbconvert nbformat casadi matplotlib numpy
+          jupyter nbconvert --to notebook --execute elastica_buckling_casadi.ipynb --output-dir executed
+          jupyter nbconvert --to notebook --execute elastica_buckling_fenicsx.ipynb --output-dir executed
 
-      - name: Run notebook
+      - name: Upload executed notebooks
+        uses: actions/upload-artifact@v4
+        with:
+          name: executed-notebooks
+          path: executed/
+
+  binder:
+    name: Build Binder image
+    needs: notebook
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger the mybinder.org build, so that the Binder button starts quickly
         run: |
-          jupyter nbconvert --to notebook --execute elastica_buckling.ipynb --inplace
+          curl -sSL --max-time 3000 \
+            "https://mybinder.org/build/gh/${GITHUB_REPOSITORY}/${GITHUB_SHA}" \
+            | tee build.log | grep -o '"phase": *"[a-z]*"' | uniq
+          grep -q '"phase": *"ready"' build.log

@@ -2,9 +2,18 @@ name: elastica
 channels:
   - conda-forge
 dependencies:
-  - python=3.10
-  - casadi
-  - matplotlib
+  - python=3.12
+  - fenics-dolfinx=0.11
+  - mpich
+  - petsc4py
+  - slepc4py
   - numpy
+  - matplotlib
   - ipykernel
   - jupyter
+  - nbconvert
+  - pip
+  - pip:
+      # the pip wheel bundles IPOPT and MUMPS; the conda-forge casadi pins
+      # ipopt/mumps/scotch versions that conflict with PETSc 3.25
+      - casadi
